@@ -13,7 +13,11 @@ import Container from "@/components/Container";
 import shark_logo from "./images/logos/shark_logo.jpg";
 
 // data imports
-const IMAGES = [require("./images/backgrounds/emlc.jpg")];
+const IMAGES = [
+  require("./images/backgrounds/emlc.jpg"),
+  require("./images/backgrounds/mac.jpg"),
+  require("./images/backgrounds/mac2.jpg"),
+];
 
 type ScoreBoardProps = {
   awayTeamUrl: string;
@@ -29,7 +33,7 @@ export default function Index({
   homeTeamScore = 7,
   awayTeamScore = 9,
   didWin = false,
-}) {
+}: ScoreBoardProps) {
   const image = IMAGES[Math.floor(Math.random() * IMAGES.length)].default;
 
   const winColor = "#28a745";
@@ -52,9 +56,9 @@ export default function Index({
           style={{
             filter: "blur(3px)",
           }}
-          width={1024}
-          height={1024}
-          src={image.src}
+          layout="fill"
+          objectFit="cover"
+          src={image}
           alt="background"
         />
         <div className={styles.overlay}></div>
